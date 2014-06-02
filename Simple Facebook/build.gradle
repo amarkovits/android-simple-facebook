@@ -1,0 +1,38 @@
+apply plugin: 'android-library'
+apply plugin: 'maven'
+
+group = 'com.smroku'
+version = '1.0'
+project.archivesBaseName = 'simple-facebook'
+
+dependencies {
+	compile 'fr.avianey:facebook-android-api:+@aar'
+	compile 'com.android.support:support-v13:18.0.+'
+}
+
+android {
+	compileSdkVersion 19
+	buildToolsVersion '19'
+
+	defaultConfig {
+    		minSdkVersion 14
+    		targetSdkVersion 19
+	}
+
+	sourceSets {
+    		main {
+        		manifest.srcFile 'AndroidManifest.xml'
+        		java.srcDirs = ['src']
+        		res.srcDirs = ['res']
+    		}
+	}
+}
+
+uploadArchives {
+  repositories {
+    mavenDeployer {
+      repository url: 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
+    }
+  }
+}
+task install(dependsOn: uploadArchives)

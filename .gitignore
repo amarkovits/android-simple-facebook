@@ -4,3 +4,7 @@ gen
 *.class
 *.sh
 .settings
+
+# Ignore gradle files
+.gradle/
+build/
