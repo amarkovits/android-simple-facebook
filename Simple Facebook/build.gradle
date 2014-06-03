@@ -2,7 +2,7 @@ apply plugin: 'android-library'
 apply plugin: 'maven'
 
 group = 'com.smroku'
-version = '1.0'
+version = '2.0'
 project.archivesBaseName = 'simple-facebook'
 
 dependencies {
